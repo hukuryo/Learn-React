@@ -1,12 +1,16 @@
-import "./App.css";
+import { useChecks } from "./hooks/useChecks";
+
+const labels = ["check 1", "check 2", "check 3"];
 
 function App() {
+  const [isAllChecked, renderChecks] = useChecks(labels);
   return (
-    <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div>
+      {renderChecks()}
+      <p>
+        <button disabled={!isAllChecked}>次へ</button>
       </p>
-    </>
+    </div>
   );
 }
 
