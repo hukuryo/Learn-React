@@ -1,16 +1,14 @@
-import { useChecks } from "./hooks/useChecks";
-
-const labels = ["check 1", "check 2", "check 3"];
+import { useState } from "react";
+import { TestComponent } from "./components/TestComponent";
 
 function App() {
-  const [isAllChecked, renderChecks] = useChecks(labels);
+  const [count, setCount] = useState(0);
+
   return (
-    <div>
-      {renderChecks()}
-      <p>
-        <button disabled={!isAllChecked}>次へ</button>
-      </p>
-    </div>
+    <>
+      <TestComponent name={"Taro"} onClick={() => console.log("click!")} />
+      <button onClick={() => setCount((prev) => prev + 1)}>{count}</button>
+    </>
   );
 }
 
